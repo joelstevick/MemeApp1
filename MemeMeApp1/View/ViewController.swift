@@ -11,8 +11,8 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     let pickerController = UIImagePickerController()
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.blue,
-        NSAttributedString.Key.foregroundColor: UIColor.blue,
+        NSAttributedString.Key.strokeColor: UIColor.white,
+        NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSAttributedString.Key.strokeWidth:  0
     ]
@@ -20,11 +20,16 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var imagePickerView: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         topText.defaultTextAttributes = memeTextAttributes
         bottomText.defaultTextAttributes = memeTextAttributes
         pickerController.delegate = self
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
 
 
