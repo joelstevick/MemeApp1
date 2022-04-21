@@ -26,16 +26,40 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         topText.defaultTextAttributes = memeTextAttributes
         bottomText.defaultTextAttributes = memeTextAttributes
         pickerController.delegate = self
+        
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        unsubscribeToKeyboardNotifications()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
 
-
     @IBAction func albumPressed(_ sender: Any) {
         pickerController.sourceType = .photoLibrary
         present(pickerController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Keyboard adjustments
+    @objc func keyboardWillShow(_ notification: Notification) {
+        view.frame.origin.y = -1 * getKeyboardHeight(notification)
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    func unsubscribeToKeyboardNotifications () {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil )
+    }
+    
+    func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
     }
 }
 
