@@ -17,6 +17,7 @@
 		936A6C382811FB7A004AAD3D /* MemeMeApp1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A6C372811FB7A004AAD3D /* MemeMeApp1UITests.swift */; };
 		936A6C3A2811FB7A004AAD3D /* MemeMeApp1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A6C392811FB7A004AAD3D /* MemeMeApp1UITestsLaunchTests.swift */; };
 		936A6C482812083A004AAD3D /* ViewController+UIImagePickerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A6C472812083A004AAD3D /* ViewController+UIImagePickerControllerDelegate.swift */; };
+		936A6C4B28121BD8004AAD3D /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A6C4A28121BD8004AAD3D /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		936A6C372811FB7A004AAD3D /* MemeMeApp1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeApp1UITests.swift; sourceTree = "<group>"; };
 		936A6C392811FB7A004AAD3D /* MemeMeApp1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeApp1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		936A6C472812083A004AAD3D /* ViewController+UIImagePickerControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+UIImagePickerControllerDelegate.swift"; sourceTree = "<group>"; };
+		936A6C4A28121BD8004AAD3D /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		936A6C152811FB79004AAD3D /* MemeMeApp1 */ = {
 			isa = PBXGroup;
 			children = (
+				936A6C4928121BC2004AAD3D /* Model */,
 				936A6C162811FB79004AAD3D /* AppDelegate.swift */,
 				936A6C182811FB79004AAD3D /* SceneDelegate.swift */,
 				936A6C4628120820004AAD3D /* View */,
@@ -136,6 +139,14 @@
 				936A6C472812083A004AAD3D /* ViewController+UIImagePickerControllerDelegate.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		936A6C4928121BC2004AAD3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				936A6C4A28121BD8004AAD3D /* Meme.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +284,7 @@
 				936A6C172811FB79004AAD3D /* AppDelegate.swift in Sources */,
 				936A6C192811FB79004AAD3D /* SceneDelegate.swift in Sources */,
 				936A6C482812083A004AAD3D /* ViewController+UIImagePickerControllerDelegate.swift in Sources */,
+				936A6C4B28121BD8004AAD3D /* Meme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

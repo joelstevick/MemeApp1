@@ -35,7 +35,6 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     @IBAction func albumPressed(_ sender: Any) {
