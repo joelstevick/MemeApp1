@@ -25,5 +25,7 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func albumPressed(_ sender: Any) {
+    }
 }
 

@@ -26,7 +26,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5RG-Mn-vqR">
-                                <rect key="frame" x="64.5" y="762" width="285" height="34"/>
+                                <rect key="frame" x="64.5" y="728" width="285" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="285" id="7Pz-kJ-Qzw"/>
                                     <constraint firstAttribute="height" constant="34" id="AvZ-Wl-Sif"/>
@@ -35,12 +35,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kE3-qv-RMc">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="Album" id="JAQ-KR-Be1">
+                                        <connections>
+                                            <action selector="albumPressed:" destination="BYZ-38-t0r" id="Xyd-Oc-UKg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-fE-CVu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kE3-qv-RMc" secondAttribute="trailing" id="8mO-TQ-QG4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xhs-fE-CVu" secondAttribute="bottom" id="BHT-8Q-lc6"/>
+                            <constraint firstItem="Xhs-fE-CVu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DCl-gw-r9t"/>
                             <constraint firstItem="eAl-k9-FEf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DT3-dZ-AqT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5RG-Mn-vqR" secondAttribute="bottom" constant="66" id="FAP-e7-sjA"/>
+                            <constraint firstItem="Xhs-fE-CVu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JqP-C8-2v8"/>
+                            <constraint firstItem="kE3-qv-RMc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LRQ-mh-Ah7"/>
+                            <constraint firstItem="kE3-qv-RMc" firstAttribute="top" secondItem="5RG-Mn-vqR" secondAttribute="bottom" constant="51" id="NXs-Kz-vcm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xhs-fE-CVu" secondAttribute="trailing" id="SHI-eH-Hf4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kE3-qv-RMc" secondAttribute="bottom" id="n4V-US-9MY"/>
                             <constraint firstItem="eAl-k9-FEf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="68" id="xxO-8n-NwE"/>
                             <constraint firstItem="5RG-Mn-vqR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yz2-4L-Agd"/>
                         </constraints>
