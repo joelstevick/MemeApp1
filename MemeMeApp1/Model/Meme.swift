@@ -38,7 +38,8 @@ class Meme {
             return false
         }
         
-        return true
+        return topTextField!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
+        && bottomTextField!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
     }
     func build(_ view: UIView, navigationController: UINavigationController) -> UIImage {
         guard isValid() else {
