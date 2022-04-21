@@ -30,16 +30,20 @@ class Meme {
         return self
     }
     
-    func build(_ view: UIView, navigationController: UINavigationController) -> UIImage {
+    func isValid() -> Bool {
         guard let topTextField = topTextField,
               let bottomTextField = bottomTextField,
               let originalImage = originalImage else {
+            
+            return false
+        }
+        
+        return true
+    }
+    func build(_ view: UIView, navigationController: UINavigationController) -> UIImage {
+        guard isValid() else {
             fatalError("All properties are required!")
         }
-        // store properties
-        self.topTextField = topTextField
-        self.originalImage = originalImage
-        self.bottomTextField = bottomTextField
         
         // Hide toolbar and navbar
         navigationController.setToolbarHidden(true, animated: false)
