@@ -31,9 +31,9 @@ class Meme {
     }
     
     func isValid() -> Bool {
-        guard let topTextField = topTextField,
-              let bottomTextField = bottomTextField,
-              let originalImage = originalImage else {
+        guard let _ = topTextField,
+              let _ = bottomTextField,
+              let _ = originalImage else {
             
             return false
         }
