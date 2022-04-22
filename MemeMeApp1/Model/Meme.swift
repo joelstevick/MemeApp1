@@ -7,27 +7,27 @@
 
 import UIKit
 
-class Meme {
+struct Meme {
     private var topTextField: String?
     private var bottomTextField: String?
     private var originalImage: UIImage?
     
-    func addTopTextField(_ topTextField: String)  {
+    mutating func addTopTextField(_ topTextField: String)  {
         self.topTextField = topTextField
     }
     
-    func addBottomTextField(_ bottomTextField: String) {
+    mutating func addBottomTextField(_ bottomTextField: String) {
         self.bottomTextField = bottomTextField
     }
     
-    func addOriginalImage(_ originalImage: UIImage) {
+    mutating func addOriginalImage(_ originalImage: UIImage) {
         self.originalImage = originalImage
     }
     
     var hasOriginalImage: Bool {
         return !(originalImage === nil)
     }
-    func reset() {
+    mutating func reset() {
         topTextField = nil
         bottomTextField = nil
         originalImage = nil
