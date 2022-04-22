@@ -11,6 +11,7 @@ struct Meme {
     private var topTextField: String?
     private var bottomTextField: String?
     private var originalImage: UIImage?
+    private var memedImage: UIImage?
     
     mutating func addTopTextField(_ topTextField: String)  {
         self.topTextField = topTextField
@@ -43,7 +44,7 @@ struct Meme {
         return topTextField!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
         && bottomTextField!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
     }
-    func build(_ view: UIView, _ navigationController: UINavigationController?) -> UIImage {
+    mutating func build(_ view: UIView, _ navigationController: UINavigationController?) -> UIImage {
         guard isValid() else {
             fatalError("All properties are required!")
         }
@@ -65,6 +66,12 @@ struct Meme {
             navigationController.setToolbarHidden(false, animated: false)
             navigationController.setNavigationBarHidden(false, animated: false)
         }
+        self.memedImage = memedImage
+        
         return memedImage
+    }
+    
+    func save() {
+        UIImageWriteToSavedPhotosAlbum(memedImage!, nil, nil, nil)
     }
 }

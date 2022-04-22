@@ -87,7 +87,9 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         let items = [meme.build(view, navigationController)]
         
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        present(ac, animated: true)
+        present(ac, animated: true) {
+            self.meme.save()
+        }
         
     }
     
