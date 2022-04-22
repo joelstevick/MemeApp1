@@ -92,6 +92,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         updateModel()
         topText.text = ""
         bottomText.text = ""
+        imagePickerView.image = nil 
     }
     @IBAction func albumPressed(_ sender: Any) {
         pickerController.sourceType = .photoLibrary
