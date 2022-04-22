@@ -10,6 +10,10 @@ import UIKit
 class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate,  UITextFieldDelegate {
     let pickerController = UIImagePickerController()
     
+    var adjustForKeyboard = false
+    
+    let bottomTextTag = 2
+    
     var memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.gray,
         NSAttributedString.Key.foregroundColor: UIColor.gray,
@@ -53,6 +57,9 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     }
     
     // MARK: - TextField Delegates
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        adjustForKeyboard = textField.tag == bottomTextTag
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         updateModel()
@@ -93,7 +100,9 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     }
     // MARK: - Keyboard adjustments
     @objc func keyboardWillShow(_ notification: Notification) {
-        view.frame.origin.y = -1 * getKeyboardHeight(notification)
+        if adjustForKeyboard {
+            view.frame.origin.y = -1 * getKeyboardHeight(notification)
+        }
     }
     @objc func keyboardWillHide(_ notification: Notification) {
         view.frame.origin.y = 0
