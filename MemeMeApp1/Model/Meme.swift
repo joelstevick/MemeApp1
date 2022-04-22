@@ -24,6 +24,9 @@ class Meme {
         self.originalImage = originalImage
     }
     
+    func hasOriginalImage() -> Bool {
+        return !(originalImage === nil)
+    }
     func isValid() -> Bool {
         guard let _ = topTextField,
               let _ = bottomTextField,
