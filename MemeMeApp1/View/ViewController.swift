@@ -18,7 +18,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth:  1.0
+        NSAttributedString.Key.strokeWidth:  -5.0 // need to do this so that the foreground color is applied 🤔
     ]
     var meme = Meme()
     
@@ -92,7 +92,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         updateModel()
         topText.text = ""
         bottomText.text = ""
-        imagePickerView.image = nil 
+        imagePickerView.image = nil
     }
     @IBAction func albumPressed(_ sender: Any) {
         pickerController.sourceType = .photoLibrary
