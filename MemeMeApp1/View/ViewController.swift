@@ -82,13 +82,20 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         
         shareBtn.isEnabled = meme.isValid()
         
-        if meme.hasOriginalImage() {
+        if meme.hasOriginalImage {
             updateMemeTextAtttribute(NSAttributedString.Key.foregroundColor, UIColor.white)
         }
         
 
     }
     // MARK: - Actions
+    @IBAction func cancelPressed(_ sender: Any) {
+        view.endEditing(true)
+        meme.reset()
+        updateModel()
+        topText.text = ""
+        bottomText.text = ""
+    }
     @IBAction func albumPressed(_ sender: Any) {
         pickerController.sourceType = .photoLibrary
         present(pickerController, animated: true, completion: nil)

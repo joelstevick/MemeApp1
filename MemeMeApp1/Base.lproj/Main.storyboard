@@ -63,7 +63,11 @@
                                 <items>
                                     <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="86m-7V-JBO"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tS9-1i-58L"/>
-                                    <barButtonItem title="Cancel" id="LCK-4b-ET2"/>
+                                    <barButtonItem title="Cancel" id="LCK-4b-ET2">
+                                        <connections>
+                                            <action selector="cancelPressed:" destination="BYZ-38-t0r" id="LPI-j6-vc0"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
