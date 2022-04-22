@@ -89,6 +89,14 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
 
     }
     // MARK: - Actions
+    @IBAction func sharePressed(_ sender: Any) {
+        
+        let items = [meme.build(view, navigationController)]
+        
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+        
+    }
     @IBAction func cancelPressed(_ sender: Any) {
         view.endEditing(true)
         meme.reset()

@@ -43,14 +43,16 @@ class Meme {
         return topTextField!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
         && bottomTextField!.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
     }
-    func build(_ view: UIView, navigationController: UINavigationController) -> UIImage {
+    func build(_ view: UIView, _ navigationController: UINavigationController?) -> UIImage {
         guard isValid() else {
             fatalError("All properties are required!")
         }
         
         // Hide toolbar and navbar
-        navigationController.setToolbarHidden(true, animated: false)
-        navigationController.setNavigationBarHidden(true, animated: false)
+        if let navigationController = navigationController {
+            navigationController.setToolbarHidden(true, animated: false)
+            navigationController.setNavigationBarHidden(true, animated: false)
+        }
         
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
@@ -59,9 +61,10 @@ class Meme {
         UIGraphicsEndImageContext()
         
         // Show toolbar and navbar
-        navigationController.setToolbarHidden(false, animated: false)
-        navigationController.setNavigationBarHidden(false, animated: false)
-        
+        if let navigationController = navigationController {
+            navigationController.setToolbarHidden(false, animated: false)
+            navigationController.setNavigationBarHidden(false, animated: false)
+        }
         return memedImage
     }
 }
