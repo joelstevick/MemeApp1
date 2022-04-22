@@ -39,6 +39,8 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
 
         topText.defaultTextAttributes = memeTextAttributes
         bottomText.defaultTextAttributes = memeTextAttributes
+        bottomText.attributedPlaceholder = NSAttributedString(string: "Bottom", attributes: memeTextAttributes)
+        topText.attributedPlaceholder = NSAttributedString(string: "top", attributes: memeTextAttributes)
         pickerController.delegate = self
         
         subscribeToKeyboardNotifications()
