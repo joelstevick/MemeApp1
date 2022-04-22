@@ -14,6 +14,8 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     
     let bottomTextTag = 2
     
+    let cameraBtnTag = 2
+    
     var memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -88,6 +90,16 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         present(ac, animated: true)
         
     }
+    
+    @IBAction func imageCaptureBtnPressed(_ sender: UIBarButtonItem) {
+        if sender.tag == cameraBtnTag {
+            pickerController.sourceType = .camera
+        } else {
+            pickerController.sourceType = .photoLibrary
+        }
+       
+        present(pickerController, animated: true, completion: nil)
+    }
     @IBAction func cancelPressed(_ sender: Any) {
         view.endEditing(true)
         meme.reset()
@@ -96,15 +108,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         bottomText.text = ""
         imagePickerView.image = nil
     }
-    @IBAction func albumPressed(_ sender: Any) {
-        pickerController.sourceType = .photoLibrary
-        present(pickerController, animated: true, completion: nil)
-    }
     
-    @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
-        pickerController.sourceType = .camera
-        present(pickerController, animated: true, completion: nil)
-    }
     // MARK: - Keyboard adjustments
     @objc func keyboardWillShow(_ notification: Notification) {
         if adjustForKeyboard {

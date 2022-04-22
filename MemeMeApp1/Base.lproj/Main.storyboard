@@ -44,15 +44,15 @@
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="54x-RO-67J"/>
-                                    <barButtonItem title="Camera" image="camera.fill" catalog="system" id="U6o-Fn-7EC">
+                                    <barButtonItem tag="2" title="Camera" image="camera.fill" catalog="system" id="U6o-Fn-7EC">
                                         <connections>
-                                            <action selector="cameraPressed:" destination="BYZ-38-t0r" id="6vD-kD-GZ0"/>
+                                            <action selector="imageCaptureBtnPressed:" destination="BYZ-38-t0r" id="ofp-tU-fGT"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="UHS-LT-G4l"/>
                                     <barButtonItem title="Album" id="JAQ-KR-Be1">
                                         <connections>
-                                            <action selector="albumPressed:" destination="BYZ-38-t0r" id="Xyd-Oc-UKg"/>
+                                            <action selector="imageCaptureBtnPressed:" destination="BYZ-38-t0r" id="mR1-vb-8u4"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bnG-87-FgZ"/>
@@ -96,7 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomText" destination="5RG-Mn-vqR" id="O6K-f6-HO8"/>
-                        <outlet property="cameraBtn" destination="U6o-Fn-7EC" id="M9M-xe-esv"/>
+                        <outlet property="cameraBtn" destination="U6o-Fn-7EC" id="VH3-8s-SKT"/>
                         <outlet property="imagePickerView" destination="Xhs-fE-CVu" id="zBW-S1-D4L"/>
                         <outlet property="shareBtn" destination="86m-7V-JBO" id="46n-2N-NT8"/>
                         <outlet property="topText" destination="eAl-k9-FEf" id="FkI-vh-AfU"/>
