@@ -15,10 +15,10 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     let bottomTextTag = 2
     
     var memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.gray,
-        NSAttributedString.Key.foregroundColor: UIColor.gray,
+        NSAttributedString.Key.strokeColor: UIColor.black,
+        NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth:  0
+        NSAttributedString.Key.strokeWidth:  1.0
     ]
     var meme = Meme()
     
@@ -66,12 +66,6 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         return false
     }
 
-    func updateMemeTextAtttribute(_ key: NSAttributedString.Key, _ value: Any) {
-        memeTextAttributes[key] = value
-        
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.defaultTextAttributes = memeTextAttributes
-    }
     func updateModel() {
         if let text = topText.text {
             meme.addTopTextField(text)
@@ -82,11 +76,6 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         
         shareBtn.isEnabled = meme.isValid()
         
-        if meme.hasOriginalImage {
-            updateMemeTextAtttribute(NSAttributedString.Key.foregroundColor, UIColor.white)
-        }
-        
-
     }
     // MARK: - Actions
     @IBAction func sharePressed(_ sender: Any) {
