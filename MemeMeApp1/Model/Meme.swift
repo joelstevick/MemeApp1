@@ -12,22 +12,16 @@ class Meme {
     private var bottomTextField: String?
     private var originalImage: UIImage?
     
-    func addTopTextField(topTextField: String) -> Meme {
-        
+    func addTopTextField(_ topTextField: String)  {
         self.topTextField = topTextField
-        return self
     }
     
-    func addBottomTextField(bottomTextField: String) -> Meme {
-        
+    func addBottomTextField(_ bottomTextField: String) {
         self.bottomTextField = bottomTextField
-        return self
     }
     
-    func addOriginalImage(originalImage: UIImage) -> Meme {
-        
+    func addOriginalImage(_ originalImage: UIImage) {
         self.originalImage = originalImage
-        return self
     }
     
     func isValid() -> Bool {

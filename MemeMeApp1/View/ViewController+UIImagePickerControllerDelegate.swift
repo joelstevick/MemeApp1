@@ -16,5 +16,9 @@ extension ViewController {
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         imagePickerView.image = info[.originalImage] as? UIImage
         dismiss(animated: true)
+        
+        meme.addOriginalImage(imagePickerView.image!)
+        
+        updateModel()
     }
 }

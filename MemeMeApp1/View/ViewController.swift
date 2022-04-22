@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate,  UITextFieldDelegate {
     let pickerController = UIImagePickerController()
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -16,10 +16,19 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSAttributedString.Key.strokeWidth:  0
     ]
+    var meme = Meme()
+    
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var shareBtn: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
     
+    // MARK: - view lifecycle methods
+    override func viewDidAppear(_ animated: Bool) {
+        topText.delegate = self
+        bottomText.delegate = self
+        shareBtn.isEnabled = false
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -36,7 +45,25 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    // MARK: - TextField Delegates
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateModel()
+    }
 
+    func updateModel() {
+        if let text = topText.text {
+            meme.addTopTextField(text)
+        }
+        if let text = bottomText.text {
+            meme.addBottomTextField(text)
+        }
+        
+        shareBtn.isEnabled = meme.isValid()
+        
+
+    }
+    // MARK: - Actions
     @IBAction func albumPressed(_ sender: Any) {
         pickerController.sourceType = .photoLibrary
         present(pickerController, animated: true, completion: nil)

@@ -85,6 +85,7 @@
                     <connections>
                         <outlet property="bottomText" destination="5RG-Mn-vqR" id="O6K-f6-HO8"/>
                         <outlet property="imagePickerView" destination="Xhs-fE-CVu" id="zBW-S1-D4L"/>
+                        <outlet property="shareBtn" destination="86m-7V-JBO" id="46n-2N-NT8"/>
                         <outlet property="topText" destination="eAl-k9-FEf" id="FkI-vh-AfU"/>
                     </connections>
                 </viewController>
