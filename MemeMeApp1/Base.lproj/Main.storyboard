@@ -54,10 +54,19 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bnG-87-FgZ"/>
                                 </items>
                             </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P76-8x-KzB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem title="Share" image="square.and.arrow.up" catalog="system" id="86m-7V-JBO"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tS9-1i-58L"/>
+                                    <barButtonItem title="Cancel" id="LCK-4b-ET2"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="P76-8x-KzB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8Hc-03-Pj4"/>
                             <constraint firstAttribute="trailing" secondItem="kE3-qv-RMc" secondAttribute="trailing" id="8mO-TQ-QG4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xhs-fE-CVu" secondAttribute="bottom" id="BHT-8Q-lc6"/>
                             <constraint firstItem="Xhs-fE-CVu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DCl-gw-r9t"/>
@@ -65,8 +74,10 @@
                             <constraint firstItem="Xhs-fE-CVu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JqP-C8-2v8"/>
                             <constraint firstItem="kE3-qv-RMc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LRQ-mh-Ah7"/>
                             <constraint firstItem="kE3-qv-RMc" firstAttribute="top" secondItem="5RG-Mn-vqR" secondAttribute="bottom" constant="51" id="NXs-Kz-vcm"/>
+                            <constraint firstItem="P76-8x-KzB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RSN-gJ-GAR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xhs-fE-CVu" secondAttribute="trailing" id="SHI-eH-Hf4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kE3-qv-RMc" secondAttribute="bottom" id="n4V-US-9MY"/>
+                            <constraint firstItem="P76-8x-KzB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wMq-1G-EDv"/>
                             <constraint firstItem="eAl-k9-FEf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="68" id="xxO-8n-NwE"/>
                             <constraint firstItem="5RG-Mn-vqR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yz2-4L-Agd"/>
                         </constraints>
@@ -84,6 +95,7 @@
     </scenes>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
