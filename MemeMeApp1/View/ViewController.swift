@@ -22,12 +22,14 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var shareBtn: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var cameraBtn: UIBarButtonItem!
     
     // MARK: - view lifecycle methods
     override func viewDidAppear(_ animated: Bool) {
         topText.delegate = self
         bottomText.delegate = self
         shareBtn.isEnabled = false
+        cameraBtn.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -69,6 +71,10 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         present(pickerController, animated: true, completion: nil)
     }
     
+    @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
+        pickerController.sourceType = .camera
+        present(pickerController, animated: true, completion: nil)
+    }
     // MARK: - Keyboard adjustments
     @objc func keyboardWillShow(_ notification: Notification) {
         view.frame.origin.y = -1 * getKeyboardHeight(notification)
