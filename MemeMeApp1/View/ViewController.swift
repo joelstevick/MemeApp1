@@ -26,9 +26,8 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     
     // MARK: - view lifecycle methods
     override func viewDidAppear(_ animated: Bool) {
-        topText.delegate = self
-        bottomText.delegate = self
-        shareBtn.isEnabled = false
+        super.viewDidAppear(animated)
+        
         cameraBtn.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -42,15 +41,22 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         unsubscribeToKeyboardNotifications()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        topText.delegate = self
+        bottomText.delegate = self
+        shareBtn.isEnabled = false
     }
     
     // MARK: - TextField Delegates
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
         updateModel()
+        return false
     }
 
     func updateMemeTextAtttribute(_ key: NSAttributedString.Key, _ value: Any) {
