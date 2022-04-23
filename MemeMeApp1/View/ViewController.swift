@@ -39,7 +39,8 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        configureTextFields()
+        configureTextField(topText, "Top")
+        configureTextField(bottomText, "Bottom")
         
         pickerController.delegate = self
         
@@ -142,13 +143,11 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     }
     
     // MARK: - Utility functions
-    func configureTextFields() {
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.defaultTextAttributes = memeTextAttributes
-        bottomText.attributedPlaceholder = NSAttributedString(string: "Bottom", attributes: memeTextAttributes)
-        topText.attributedPlaceholder = NSAttributedString(string: "top", attributes: memeTextAttributes)
-        topText.delegate = self
-        bottomText.delegate = self
+    func configureTextField(_ textField: UITextField, _ placeholder: String) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.delegate = self
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: memeTextAttributes)
+
     }
 }
 
