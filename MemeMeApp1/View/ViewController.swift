@@ -39,10 +39,8 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.defaultTextAttributes = memeTextAttributes
-        bottomText.attributedPlaceholder = NSAttributedString(string: "Bottom", attributes: memeTextAttributes)
-        topText.attributedPlaceholder = NSAttributedString(string: "top", attributes: memeTextAttributes)
+        configureTextFields()
+        
         pickerController.delegate = self
         
         subscribeToKeyboardNotifications()
@@ -55,8 +53,6 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topText.delegate = self
-        bottomText.delegate = self
         shareBtn.isEnabled = false
     }
     
@@ -135,6 +131,16 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
+    }
+    
+    // MARK: - Utility functions
+    func configureTextFields() {
+        topText.defaultTextAttributes = memeTextAttributes
+        bottomText.defaultTextAttributes = memeTextAttributes
+        bottomText.attributedPlaceholder = NSAttributedString(string: "Bottom", attributes: memeTextAttributes)
+        topText.attributedPlaceholder = NSAttributedString(string: "top", attributes: memeTextAttributes)
+        topText.delegate = self
+        bottomText.delegate = self
     }
 }
 
