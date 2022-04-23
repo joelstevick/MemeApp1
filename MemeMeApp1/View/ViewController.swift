@@ -83,9 +83,17 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         let items = [meme.build(view, navigationController)]
         
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        present(ac, animated: true) {
-            self.meme.save()
+        ac.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed:
+                                            Bool, arrayReturnedItems: [Any]?, error: Error?) in
+            if completed {
+                self.meme.save()
+                return
+            }
+            if let shareError = error {
+                print("error while sharing: \(shareError.localizedDescription)")
+            }
         }
+        present(ac, animated: true)
         
     }
     
